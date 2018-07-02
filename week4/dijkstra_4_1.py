@@ -24,7 +24,7 @@ def distance(adj, cost, s, t):
     pq.put(Vertex(s, dist[s]))   # Distance of vertex v from source s
 
     while not pq.empty():
-        vertex = pq.get()
+        vertex = pq.get()        # Relax all the outgoing edges of this vertex
         for adj_vertex_index, adj_vertex in enumerate(adj[vertex.index]):
             if dist[adj_vertex] > dist[vertex.index] + cost[vertex.index][adj_vertex_index]:
                 dist[adj_vertex] = dist[vertex.index] + cost[vertex.index][adj_vertex_index]
