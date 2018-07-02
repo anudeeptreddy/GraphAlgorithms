@@ -25,8 +25,7 @@ def distance(adj, cost, s, t):
 
     while not pq.empty():
         vertex = pq.get()
-        for adj_vertex in adj[vertex.index]:
-            adj_vertex_index = adj[vertex.index].index(adj_vertex)  # need this to retrieve weight
+        for adj_vertex_index, adj_vertex in enumerate(adj[vertex.index]):
             if dist[adj_vertex] > dist[vertex.index] + cost[vertex.index][adj_vertex_index]:
                 dist[adj_vertex] = dist[vertex.index] + cost[vertex.index][adj_vertex_index]
                 pq.put(Vertex(adj_vertex, dist[adj_vertex]))
